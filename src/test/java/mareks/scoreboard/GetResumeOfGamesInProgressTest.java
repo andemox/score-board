@@ -17,19 +17,16 @@ public class GetResumeOfGamesInProgressTest {
 
     @Test
     public void getResumeOfGameInProgressTest() throws InvalidMatchException {
-
         // given
         var m1 = Match.setup(setupStartGameForTest(14, 30), 0 , 0);
         var m2 = Match.setup(setupStartGameForTest(15, 20), 2 , 1);
         var m3 = Match.setup(setupStartGameForTest(12, 15), 3 , 3);
-
         // when
         var scoreBoard = new ScoreBoard();
         scoreBoard.addNewMatch(m1);
         scoreBoard.addNewMatch(m2);
         scoreBoard.addNewMatch(m3);
         scoreBoard.show();
-
         // then
         assertEquals(0, scoreBoard.howManyLiveMatches(), "Expected three games");
     }
