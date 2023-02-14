@@ -8,7 +8,7 @@ public class ScoreBoard {
     Collection<Match> matchList = new ArrayList<>();
     @SuppressWarnings("unused")
     public void addNewMatch(Match match) {
-
+        matchList.add(match);
     }
 
     public int howManyLiveMatches() {
