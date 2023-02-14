@@ -2,11 +2,15 @@ package mareks.scoreboard.model;
 
 import mareks.scoreboard.exception.InvalidMatchException;
 import mareks.scoreboard.exception.MatchNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 import java.util.UUID;
 
 public class ScoreBoard {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ScoreBoard.class);
 
     CollectionMatch matchList = new CollectionMatch();
 
@@ -42,4 +46,10 @@ public class ScoreBoard {
         Match match = getByUUID(oldMatch.getUUID());
         matchList.deleteMatch(match);
     }
+
+    public void show() {
+        matchList.gameList().forEach(p->LOGGER.info(p.toString()));
+    }
+
+
 }
