@@ -1,4 +1,4 @@
-package mareks.scoreboard.common;
+package mareks.scoreboard.exception;
 
 public class MatchNotFoundException extends Exception {
 }

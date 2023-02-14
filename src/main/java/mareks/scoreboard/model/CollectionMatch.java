@@ -1,4 +1,4 @@
-package mareks.scoreboard.common;
+package mareks.scoreboard.model;
 
 import java.util.HashMap;
 import java.util.UUID;

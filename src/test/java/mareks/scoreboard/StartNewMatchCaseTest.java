@@ -1,8 +1,8 @@
 package mareks.scoreboard;
 
-import mareks.scoreboard.common.InvalidMatchException;
-import mareks.scoreboard.common.Match;
-import mareks.scoreboard.common.ScoreBoard;
+import mareks.scoreboard.exception.InvalidMatchException;
+import mareks.scoreboard.model.Match;
+import mareks.scoreboard.model.ScoreBoard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

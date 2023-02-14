@@ -1,4 +1,7 @@
-package mareks.scoreboard.common;
+package mareks.scoreboard.model;
+
+import mareks.scoreboard.exception.InvalidMatchException;
+import mareks.scoreboard.exception.MatchNotFoundException;
 
 import java.util.Objects;
 import java.util.UUID;

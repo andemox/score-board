@@ -1,9 +1,9 @@
 package mareks.scoreboard;
 
-import mareks.scoreboard.common.InvalidMatchException;
-import mareks.scoreboard.common.Match;
-import mareks.scoreboard.common.MatchNotFoundException;
-import mareks.scoreboard.common.ScoreBoard;
+import mareks.scoreboard.exception.InvalidMatchException;
+import mareks.scoreboard.model.Match;
+import mareks.scoreboard.exception.MatchNotFoundException;
+import mareks.scoreboard.model.ScoreBoard;
 import org.junit.jupiter.api.Test;
 
 import java.util.UUID;

@@ -1,9 +1,9 @@
 package mareks.scoreboard;
 
-import mareks.scoreboard.common.InvalidMatchException;
-import mareks.scoreboard.common.Match;
-import mareks.scoreboard.common.MatchNotFoundException;
-import mareks.scoreboard.common.ScoreBoard;
+import mareks.scoreboard.exception.InvalidMatchException;
+import mareks.scoreboard.model.Match;
+import mareks.scoreboard.exception.MatchNotFoundException;
+import mareks.scoreboard.model.ScoreBoard;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,7 +48,7 @@ public class FinishingMatchCaseTest {
             LOGGER.info("Match Not found = its OK");
         }
         // then
-        assertEquals(0, scoreBoard.howManyLiveMatches(), "Expected zero");
+        assertEquals(1, scoreBoard.howManyLiveMatches(), "Expected one because the uuid is not exist");
     }
 
     private static Match getMatchNotExisting(ScoreBoard scoreBoard) {
