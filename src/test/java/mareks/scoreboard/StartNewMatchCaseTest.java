@@ -20,4 +20,11 @@ public class StartNewMatchCaseTest {
         scoreBoard.addNewMatch(match);
         assertEquals(1, scoreBoard.howManyLiveMatches(), "One match expected");
     }
+
+    @Test
+    void testStartingValues() {
+        var match = new Match();
+        assertEquals(0, match.getScoreHomeTeam(), "Expected zero");
+        assertEquals(0, match.getScoreAwayTeam(), "Expected zero");
+    }
 }
