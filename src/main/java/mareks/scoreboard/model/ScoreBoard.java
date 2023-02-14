@@ -5,6 +5,7 @@ import mareks.scoreboard.exception.MatchNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -48,8 +49,15 @@ public class ScoreBoard {
     }
 
     public void show() {
-        matchList.gameList().forEach(p->LOGGER.info(p.toString()));
+        matchList.gameList().forEach(p -> LOGGER.info(p.toString()));
     }
 
 
+    public void showSortedByResultAndTime() {
+        getGameListSorted().forEach(p -> LOGGER.info(p.toString()));
+    }
+
+    public ArrayList<Match> getGameListSorted() {
+        return matchList.gameList();
+    }
 }
