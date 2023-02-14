@@ -1,4 +1,4 @@
-package mareks.scoreboard.common;
+package mareks.scoreboard.model;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -25,5 +25,9 @@ public class CollectionMatch {
 
     public void updateMatch(Match newDataForMatch) {
         hashMap.put(newDataForMatch.getUUID(), newDataForMatch);
+    }
+
+    public void deleteMatch(Match oldMatch) {
+        hashMap.remove(oldMatch.getUUID());
     }
 }

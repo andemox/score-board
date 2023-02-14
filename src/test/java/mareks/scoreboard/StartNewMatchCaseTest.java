@@ -1,7 +1,8 @@
 package mareks.scoreboard;
 
-import mareks.scoreboard.common.Match;
-import mareks.scoreboard.common.ScoreBoard;
+import mareks.scoreboard.exception.InvalidMatchException;
+import mareks.scoreboard.model.Match;
+import mareks.scoreboard.model.ScoreBoard;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class StartNewMatchCaseTest {
 
     @Test
-    void testAddingNewMatch() {
+    void testAddingNewMatch() throws InvalidMatchException {
         // given
         var match = new Match();
         var scoreBoard = new ScoreBoard();
