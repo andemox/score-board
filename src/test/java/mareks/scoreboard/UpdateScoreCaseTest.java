@@ -1,6 +1,8 @@
 package mareks.scoreboard;
 
+import mareks.scoreboard.common.InvalidMatchException;
 import mareks.scoreboard.common.Match;
+import mareks.scoreboard.common.MatchNotFoundException;
 import mareks.scoreboard.common.ScoreBoard;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +16,7 @@ public class UpdateScoreCaseTest {
     final static int expectedScoreAwayTeam = 1;
 
     @Test
-    void testUpdatingMatch() {
+    void testUpdatingMatch() throws MatchNotFoundException, InvalidMatchException {
         // given
         var newMatch = new Match();
         var scoreBoard = new ScoreBoard();
@@ -28,7 +30,7 @@ public class UpdateScoreCaseTest {
         verify(scoreBoard, uuid);
     }
 
-    private static void verify(ScoreBoard scoreBoard, UUID uuid) {
+    private static void verify(ScoreBoard scoreBoard, UUID uuid) throws MatchNotFoundException {
         Match updatedMatch = scoreBoard.getByUUID(uuid);
         assertEquals(expectedScoreHomeTeam, updatedMatch.getScoreHomeTeam(), "Check result");
         assertEquals(expectedScoreAwayTeam, updatedMatch.getScoreAwayTeam(), "Check result");
