@@ -28,6 +28,6 @@ public class GetResumeOfGamesInProgressTest {
         scoreBoard.addNewMatch(m3);
         scoreBoard.show();
         // then
-        assertEquals(0, scoreBoard.howManyLiveMatches(), "Expected three games");
+        assertEquals(3, scoreBoard.howManyLiveMatches(), "Expected three games");
     }
 }
