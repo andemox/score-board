@@ -22,7 +22,7 @@ public class Match  implements Comparable<Match>{
         this.awayTeamName = team.getName();
         this.scoreAwayTeam = team.getScore();
     }
-    
+
     public String getHomeTeamName() {
         return homeTeamName;
     }
