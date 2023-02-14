@@ -3,15 +3,10 @@ package mareks.scoreboard;
 import mareks.scoreboard.common.Match;
 import mareks.scoreboard.common.ScoreBoard;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StartNewMatchCaseTest {
-
-    @SuppressWarnings("unused")
-    private static final Logger LOGGER = LoggerFactory.getLogger(StartNewMatchCaseTest.class);
 
     @Test
     void testAddingNewMatch() {
