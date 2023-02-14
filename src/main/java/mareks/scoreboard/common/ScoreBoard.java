@@ -22,4 +22,8 @@ public class ScoreBoard {
     public void updateMatch(Match newDataForMatch) {
         matchList.updateMatch(newDataForMatch);
     }
+    @SuppressWarnings("unused")
+    public void deleteMatch(Match oldMatch) {
+
+    }
 }
