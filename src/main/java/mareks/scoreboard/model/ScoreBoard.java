@@ -5,9 +5,7 @@ import mareks.scoreboard.exception.MatchNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 public class ScoreBoard {
 
@@ -58,6 +56,8 @@ public class ScoreBoard {
     }
 
     public ArrayList<Match> getGameListSorted() {
-        return matchList.gameList();
+        final ArrayList<Match> results = matchList.gameList();
+        Collections.sort(results);
+        return results;
     }
 }

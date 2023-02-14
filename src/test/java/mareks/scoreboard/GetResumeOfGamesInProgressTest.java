@@ -38,29 +38,39 @@ public class GetResumeOfGamesInProgressTest {
 
     @Test
     public void getSortByResultAndTime() throws InvalidMatchException {
-        // given
-        var m1 = Match.setup(setupStartGameForTest(14, 30), 0, 0);
-        var m2 = Match.setup(setupStartGameForTest(15, 20), 2, 1);
-        var m3 = Match.setup(setupStartGameForTest(12, 15), 3, 3);
-        var m4 = Match.setup(setupStartGameForTest(12, 15), 3, 3);
 
-        // when
+        // given
+        var m1 = Match.setup(setupStartGameForTest(15, 25), 5, 1);
+        var m2 = Match.setup(setupStartGameForTest(15, 25), 15, 1);
+        var m3 = Match.setup(setupStartGameForTest(12, 15), 5, 1);
+        var m4 = Match.setup(setupStartGameForTest(12, 25), 10, 1);
+
+
         var scoreBoard = new ScoreBoard();
         scoreBoard.addNewMatch(m1);
         scoreBoard.addNewMatch(m2);
         scoreBoard.addNewMatch(m3);
         scoreBoard.addNewMatch(m4);
 
+        LOGGER.info("\n-- unsorted --");
+        scoreBoard.show();
+
+        // when
         ArrayList<Match> gameListSorted = scoreBoard.getGameListSorted();
+
+        LOGGER.info("\n-- sorted --");
         scoreBoard.showSortedByResultAndTime();
 
-        // sorted
-        Match sorted1 = gameListSorted.get(0);
-        LOGGER.info("sorted1: {}", sorted1);
-        LOGGER.info("m1: {}", m1);
 
         // then
-        assertEquals(0, m1.getUUID().compareTo(sorted1.getUUID()), "needs to be");
-        assertEquals(4, scoreBoard.howManyLiveMatches(), "Expected four games");
+        LOGGER.info("\n-- checking 1 -- check first element");
+        LOGGER.info("Comparing gameListSorted.get(3) {}", gameListSorted.get(0));
+        assertEquals(0, m2.getUUID().compareTo(gameListSorted.get(0).getUUID()), "needs to be equal");
+
+        LOGGER.info("\n-- checking 2 -- check last element");
+        LOGGER.info("Comparing m3: {}", m3);
+        LOGGER.info("Comparing gameListSorted.get(3) {}", gameListSorted.get(3));
+        assertEquals(0, m3.getUUID().compareTo(gameListSorted.get(3).getUUID()), "needs to be equal");
+
     }
 }

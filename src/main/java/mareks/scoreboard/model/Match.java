@@ -3,7 +3,7 @@ package mareks.scoreboard.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Match {
+public class Match  implements Comparable<Match>{
 
     UUID uuid;
     int scoreHomeTeam = 0;
@@ -37,9 +37,17 @@ public class Match {
         return uuid;
     }
 
+    public int getAbsoluteScore() {
+        return scoreAwayTeam + scoreHomeTeam;
+    }
+
     public void updateScore(int scoreHomeTeam, int scoreAwayTeam) {
         this.scoreHomeTeam = scoreHomeTeam;
         this.scoreAwayTeam = scoreAwayTeam;
+    }
+
+    public LocalDateTime getStartDateTime() {
+        return startDateTime;
     }
 
     @Override
@@ -50,5 +58,14 @@ public class Match {
                 ", scoreAwayTeam=" + scoreAwayTeam +
                 ", startDateTime=" + startDateTime +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Match o) {
+        if (this.getAbsoluteScore() != o.getAbsoluteScore()) {
+            return Integer.compare(o.getAbsoluteScore(), this.getAbsoluteScore());
+        } else {
+            return o.getStartDateTime().compareTo(this.getStartDateTime());
+        }
     }
 }
