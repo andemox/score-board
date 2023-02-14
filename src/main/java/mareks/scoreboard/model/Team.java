@@ -9,6 +9,11 @@ public class Team {
         this.name = name;
     }
 
+    public Team(int score) {
+        this.score = score;
+        this.name = "UNKNOWN";
+    }
+
     public int getScore() {
         return score;
     }
@@ -23,5 +28,9 @@ public class Team {
                 "score=" + score +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void setScore(int newScore) {
+        this.score = newScore;
     }
 }
