@@ -10,23 +10,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UpdateScoreCaseTest {
 
+    final static int expectedScoreHomeTeam = 2;
+    final static int expectedScoreAwayTeam = 1;
+
     @Test
     void testUpdatingMatch() {
+        // given
         var newMatch = new Match();
-
-        // adding match to scoreboard
         var scoreBoard = new ScoreBoard();
         scoreBoard.addNewMatch(newMatch);
         UUID uuid = newMatch.getUUID();
-
-        // get match
+        // when - updating scoreboard
         Match oldMatch = scoreBoard.getByUUID(uuid);
-        oldMatch.updateScore(2, 1);
+        oldMatch.updateScore(expectedScoreHomeTeam, expectedScoreAwayTeam);
         scoreBoard.updateMatch(oldMatch);
+        // then
+        verify(scoreBoard, uuid);
+    }
 
-        // get results
+    private static void verify(ScoreBoard scoreBoard, UUID uuid) {
         Match updatedMatch = scoreBoard.getByUUID(uuid);
-        assertEquals(2, updatedMatch.getScoreHomeTeam(), "Expected 2");
-        assertEquals(1, updatedMatch.getScoreAwayTeam(), "Expected 1");
+        assertEquals(expectedScoreHomeTeam, updatedMatch.getScoreHomeTeam(), "Check result");
+        assertEquals(expectedScoreAwayTeam, updatedMatch.getScoreAwayTeam(), "Check result");
     }
 }
