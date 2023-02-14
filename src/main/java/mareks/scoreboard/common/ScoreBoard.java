@@ -1,11 +1,11 @@
 package mareks.scoreboard.common;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.UUID;
 
 public class ScoreBoard {
 
-    Collection<Match> matchList = new ArrayList<>();
+    CollectionMatch matchList = new CollectionMatch();
+
     @SuppressWarnings("unused")
     public void addNewMatch(Match match) {
         matchList.add(match);
@@ -13,5 +13,13 @@ public class ScoreBoard {
 
     public int howManyLiveMatches() {
         return matchList.size();
+    }
+
+    public Match getByUUID(UUID uuid) {
+        return matchList.get(uuid);
+    }
+
+    public void updateMatch(Match newDataForMatch) {
+        matchList.updateMatch(newDataForMatch);
     }
 }
