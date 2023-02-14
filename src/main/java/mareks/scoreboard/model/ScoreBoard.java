@@ -60,4 +60,23 @@ public class ScoreBoard {
         Collections.sort(results);
         return results;
     }
+
+    public void showFormatedByResultAndTime() {
+        getGameListSorted().forEach(match -> {
+            StringBuilder formatter = prepraringResult(match);
+            LOGGER.info(formatter.toString());
+        });
+    }
+
+    private static StringBuilder prepraringResult(Match p) {
+        StringBuilder formatter = new StringBuilder();
+        formatter.append(p.getHomeTeamName());
+        formatter.append(" ");
+        formatter.append(p.getScoreHomeTeam());
+        formatter.append(" - ");
+        formatter.append(p.getAwayTeamName());
+        formatter.append(" ");
+        formatter.append(p.getScoreAwayTeam());
+        return formatter;
+    }
 }

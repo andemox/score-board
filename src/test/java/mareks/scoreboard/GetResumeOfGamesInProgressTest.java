@@ -101,6 +101,9 @@ public class GetResumeOfGamesInProgressTest {
         assertEquals(0, m1.getUUID().compareTo(gameListSorted.get(2).getUUID()), "needs to be Mexico with Canada");
         assertEquals(0, m5.getUUID().compareTo(gameListSorted.get(3).getUUID()), "needs to be Argentina with Australia");
         assertEquals(0, m3.getUUID().compareTo(gameListSorted.get(4).getUUID()), "needs to be Germany with France");
+
+        LOGGER.info("\n-- formatted --");
+        scoreBoard.showFormatedByResultAndTime();
     }
 
     private static ScoreBoard addingToScoreboard(Match m1, Match m2, Match m3, Match m4, Match m5) throws InvalidMatchException {
