@@ -1,5 +1,6 @@
 package mareks.scoreboard.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -29,5 +30,9 @@ public class CollectionMatch {
 
     public void deleteMatch(Match oldMatch) {
         hashMap.remove(oldMatch.getUUID());
+    }
+
+    public ArrayList<Match> gameList() {
+        return new ArrayList<>(hashMap.values());
     }
 }
