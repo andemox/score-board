@@ -8,6 +8,21 @@ public class Match  implements Comparable<Match>{
     UUID uuid;
     int scoreHomeTeam = 0;
     int scoreAwayTeam = 0;
+
+    String homeTeamName;
+
+    String awayTeamName;
+
+    public void setupHomeTeam(Team team) {
+        this.homeTeamName = team.getName();
+        this.scoreHomeTeam = team.getScore();
+    }
+
+    public void setupAwayTeam(Team team) {
+        this.awayTeamName = team.getName();
+        this.scoreAwayTeam = team.getScore();
+    }
+
     LocalDateTime startDateTime;
 
     public Match() {
@@ -20,6 +35,14 @@ public class Match  implements Comparable<Match>{
         match.scoreHomeTeam = scoreHomeTeam;
         match.scoreAwayTeam = scoreAwayTeam;
         match.startDateTime = startDateTime;
+        return match;
+    }
+
+    public static Match setupFull(LocalDateTime startDateTime, Team homeTeam, Team awayTeam) {
+        Match match = new Match();
+        match.startDateTime = startDateTime;
+        match.setupHomeTeam(homeTeam);
+        match.setupAwayTeam(awayTeam);
         return match;
     }
 
@@ -51,21 +74,23 @@ public class Match  implements Comparable<Match>{
     }
 
     @Override
-    public String toString() {
-        return "Match{" +
-                "uuid=" + uuid +
-                ", scoreHomeTeam=" + scoreHomeTeam +
-                ", scoreAwayTeam=" + scoreAwayTeam +
-                ", startDateTime=" + startDateTime +
-                '}';
-    }
-
-    @Override
     public int compareTo(Match o) {
         if (this.getAbsoluteScore() != o.getAbsoluteScore()) {
             return Integer.compare(o.getAbsoluteScore(), this.getAbsoluteScore());
         } else {
             return o.getStartDateTime().compareTo(this.getStartDateTime());
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Match{" +
+                "uuid=" + uuid +
+                ", scoreHomeTeam=" + scoreHomeTeam +
+                ", scoreAwayTeam=" + scoreAwayTeam +
+                ", homeTeamName='" + homeTeamName + '\'' +
+                ", awayTeamName='" + awayTeamName + '\'' +
+                ", startDateTime=" + startDateTime +
+                '}';
     }
 }
