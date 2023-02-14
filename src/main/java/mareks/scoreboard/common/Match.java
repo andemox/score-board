@@ -11,10 +11,12 @@ public class Match {
     public Match() {
         uuid = UUID.randomUUID();
     }
+
     @SuppressWarnings("unused")
     public int getScoreHomeTeam() {
         return scoreHomeTeam;
     }
+
     @SuppressWarnings("unused")
     public int getScoreAwayTeam() {
         return scoreAwayTeam;
@@ -23,7 +25,9 @@ public class Match {
     public UUID getUUID() {
         return uuid;
     }
-    @SuppressWarnings("unused")
+
     public void updateScore(int scoreHomeTeam, int scoreAwayTeam) {
+        this.scoreHomeTeam = scoreHomeTeam;
+        this.scoreAwayTeam = scoreAwayTeam;
     }
 }

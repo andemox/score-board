@@ -22,8 +22,8 @@ public class CollectionMatch {
     public Match get(UUID uuid) {
         return hashMap.get(uuid);
     }
-    @SuppressWarnings("unused")
-    public void updateMatch(Match newDataForMatch) {
 
+    public void updateMatch(Match newDataForMatch) {
+        hashMap.put(newDataForMatch.getUUID(), newDataForMatch);
     }
 }
