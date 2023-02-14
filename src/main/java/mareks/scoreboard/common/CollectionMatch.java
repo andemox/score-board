@@ -26,4 +26,8 @@ public class CollectionMatch {
     public void updateMatch(Match newDataForMatch) {
         hashMap.put(newDataForMatch.getUUID(), newDataForMatch);
     }
+
+    public void deleteMatch(Match oldMatch) {
+        hashMap.remove(oldMatch.getUUID());
+    }
 }

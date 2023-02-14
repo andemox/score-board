@@ -24,6 +24,6 @@ public class ScoreBoard {
     }
     @SuppressWarnings("unused")
     public void deleteMatch(Match oldMatch) {
-
+        matchList.deleteMatch(oldMatch);
     }
 }
